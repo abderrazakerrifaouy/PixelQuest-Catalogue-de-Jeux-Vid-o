@@ -5,10 +5,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../output.css" />
+  <style>
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-52.5%);
+      }
+    }
+
+    .animate-scroll {
+      display: inline-flex;
+      animation: scroll 15s linear infinite;
+    }
+  </style>
   <title>PixelQuest</title>
 </head>
 
-<body>
+<body class="bg-[#151515]">
+  <header class="bg-black p-3 flex h-1/2 justify-between items-center  ">
+    <h1 class="text-white lg:text-3xl sm:text-2xl font-bold">PixelQuest</h1>
+
+    <div class="flex gap-2 items-center px-2 py-1 rounded-lg  lg:w-[40%] sm:w-[50%]">
+      <input type="text"
+        class="bg-[#D9D9D9] h-5 w-50 rounded-lg text-gray-900 text-start text-[10px] p-2  outline-none  sm:w-full sm:h-[40%] sm:text-[20px] sm:rounded-[50px] "
+        placeholder="search ...">
+      <svg xmlns="http://www.w3.org/2000/svg"
+        class="h-3 w-3 text-dark relative left-[-23px] sm:h-6 sm:w-6 sm:left-[-53px]" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+      </svg>
+    </div>
+    <div class="block lg:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" id="bergerMenu" class="h-6 w-6 text-white " fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+    <div id="menu"
+      class="text-white  lg:flex  lg:text-1xl  lg:p-5 lg:relative  lg:top-0 bg-black lg:left-0  lg:w-[30%]  absolute  w-screen m-0  justify-around top-13 sm:top-1/2 p-1 right-0 hidden ">
+      <p class="">FAVORET</p>
+      <p class="">home</p>
+      <p class="">Settings</p>
+    </div>
+  </header>
+
+  <div class="container p-2 max-w-full">
+    <div class="top">
+      <h4 class="font-bold text-white">FILTRE LES GAME</h4>
+      <div class="p-4 flex justify-between items-center lg:w-[600px] ">
+        <div
+          class="button p-2 h-auto w-auto lg:w-30 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">Genre</p>
+        </div>
+        <div
+          class="button p-2 h-auto w-auto lg:w-30 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">plateforme</p>
+        </div>
+        <div
+          class="button p-2 h-auto w-auto lg:w-30 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">popularité</p>
+        </div>
+      </div>
+    </div>
+
+    <div class=" text-white  ">
+      <h2 class="font-bold mb-2">FILTRE LES GAME</h2>
+
+      <div class="overflow-hidden relative p-5 ">
+        <div class="flex gap-3 animate-scroll whitespace-nowrap justify-between w-[200%] ">
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll1</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll2</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll3klemfk</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll4</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll5</p>
+        </div>
+        <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll1</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll2</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll3</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll4</p>
+        </div>
+           <div
+          class="button p-2 h-10 w-40 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">coll5</p>
+        </div>
+        
+           
+           
+           
+           
+           
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="../scripts/script.js"></script>
 </body>
 
 </html>
