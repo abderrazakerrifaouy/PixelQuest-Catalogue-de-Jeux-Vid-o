@@ -172,24 +172,20 @@ cartHoresontal.innerHTML = `
   </div>
 `
 
+
 let aficherMenu = false
 
 
-bergerMenu.addEventListener("click", () => {
-    if (aficherMenu) {
+bergerMenu.addEventListener("click" , ()=>{
+    if(aficherMenu){
         menu.classList.remove("flex")
         menu.classList.add("hidden")
         aficherMenu = false
-    } else {
+    }else{
+
         menu.classList.remove("hidden")
         menu.classList.add("flex")
         aficherMenu = true
     }
 })
-
-
-
-
-
-
 
