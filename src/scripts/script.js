@@ -7,13 +7,6 @@ let games;
 let typeCard = false
 
 
-
-
-
-
-
-
-
     card.innerHTML = `<div class=" px-4 pb-8 ">
     <div class="bg-black text-white rounded-2xl md:rounded-3xl overflow-hidden border-2 md:border-4 border-[#044A9D] w-full max-w-4xl mx-auto">
         
@@ -22,7 +15,7 @@ let typeCard = false
             <img id="imgeGame" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=400&fit=crop"
                  alt="Game Banner"
                  class="w-full h-40 md:h-48 object-cover">
-            <div class="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent"></div>
+            <div clagitss="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent"></div>
         </div>
 
         
