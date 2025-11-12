@@ -1,10 +1,10 @@
 import {FeatchData} from './featchDataFile.js';
-import { bergerMenu , menu , shearchInput , shearchIcons, filtre , LisetFiltrage , content , cartHoresontal , cartVerticale , card } from './elements.js';
+import { bergerMenu , menu , shearchInput , shearchIcons, filtre , LisetFiltrage , content  , card } from './elements.js';
 
 
 let data;
 let games;
-let typeCard = false
+let typeCard = true
 
 
 
@@ -200,14 +200,16 @@ bergerMenu.addEventListener("click", () => {
 
 async function getData(){
     data = await FeatchData("https://debuggers-games-api.duckdns.org/api/games?page=1&limit=10") ;
-    console.log(data)
+   
     games = data.results
-    
+    afficherData()
 }
 getData()
 
+
 function afficherData(){
     games.forEach(game => {
-        content.innerHTML += card.innerHTML
+        content.innerHTML += card.innerHTML 
     });
+    //  console.log(games)
 }

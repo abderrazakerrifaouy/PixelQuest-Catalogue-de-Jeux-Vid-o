@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Game Card - Replaced</title>
+</head>
+<body class="bg-gray-950 p-8 min-h-screen flex items-center justify-center">
+    <div class="bg-black text-white rounded-3xl overflow-hidden border-4 border-[#044A9D] w-full max-w-2xl">
+        
+        <!-- Image Banner -->
+        <div class="relative">
+            <img src="../imge/041e04184322bc859d617b790d8bfab9.jpg"
+                 class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex">
+            <!-- Left Side - Game Info -->
+            <div class="flex-1 p-6 space-y-3">
+                
+                <!-- Title and Score -->
+                <div class="space-y-2">
+                    <h2 class="text-4xl font-bold">Replaced</h2>
+                    <div class="flex items-center gap-3">
+                        <span class="text-gray-400 text-sm">Jun 23, 2008</span>
+                        <span class="text-sm border-2 border-blue-500 text-white text-sm font-bold px-3 py-1 rounded-lg">95</span>
+                    </div>
+                </div>
+
+                <!-- Genres -->
+                <div class="flex items-center gap-2">
+                    <span class="  text-white px-3 py-1 rounded font-semibold">Genres :</span>
+                    <p class="text-sm text-gray-300">Adventure , Action</p>
+                </div>
+
+                <!-- Developer -->
+                <p class="text-sm">
+                    <span class="font-semibold">Developer :</span> 
+                    <span class="text-gray-300">Rocksteady Studios</span>
+                </p>
+
+                <!-- Tags -->
+                <div class="text-sm">
+                    <span class="font-semibold">Tags :</span>
+                    <a href="#" class="text-gray-300 hover:text-white underline transition">Classic</a>
+                    <span class="text-gray-500">, </span>
+                    <a href="#" class="text-gray-300 hover:text-white underline transition">Remake</a>
+                </div>
+
+                <!-- Age Rating and Button -->
+                <div class="flex items-center justify-between gap-4 pt-2">
+                    <p class="text-sm">
+                        <span class="font-semibold">Age rating :</span> 
+                        <span class="text-gray-300">13+ Teen</span>
+                    </p>
+                    
+                    <!-- Favorite Button -->
+                    <button class="bg-[#012044] hover:bg-blue-800 transition-all duration-200 rounded-lg py-2 px-10 font-semibold border border-blue-700 whitespace-nowrap shadow-[inset_0_3px_5px_rgba(255,255,255,0.4)]">
+                        Ajouter aux favoris
+
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side - Platform Icons -->
+            <div class="flex flex-col justify-start  px-4 pt-6 pb-4">
+                <div class="w-10 h-10  rounded-lg flex items-center justify-center ">
+                    <i class="fa-brands fa-android text-white text-lg"></i>
+                </div>
+                <div class="w-10 h-10  rounded-lg flex items-center justify-center ">
+                    <i class="fa-brands fa-apple text-white text-lg"></i>
+                </div>
+                <div class="w-10 h-10  rounded-lg flex items-center justify-center ">
+                    <i class="fa-brands fa-xbox text-white text-lg"></i>
+                </div>
+                <div class="w-10 h-10  rounded-lg flex items-center justify-center ">
+                    <i class="fa-brands fa-playstation text-white text-lg"></i>
+                </div>
+                
+                <div class="w-10 h-10  rounded-lg flex items-center justify-center ">
+                    <i class="fa-brands fa-windows text-white text-lg"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
