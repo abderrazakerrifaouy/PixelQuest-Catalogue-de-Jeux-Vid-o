@@ -1,5 +1,6 @@
 import { FeatchData , getGenre, getplatform } from './featchDataFile.js';
-import { bergerMenu, menu, shearchInput,  content, card } from './elements.js';
+import { bergerMenu, menu, shearchInput,  content, card , row , column} from './elements.js';
+
 
 
 let data;
@@ -21,7 +22,9 @@ card.innerHTML = `<div class=" shadow-1xl shadow-amber-50 mb-10">
         <div class="flex p-2">
             <div class="flex-1 p-4 md:p-6 space-y-3">
                 <div class="space-y-2">
-                    <h2 class="text-2xl md:text-3xl font-bold cursor-pointer" id="titelGame">Replaced</h2>
+
+                    <h2 class="text-2xl md:text-3xl font-bold cursor-pointer underline" id="titelGame">Replaced</h2>
+
                     <div class="flex items-center gap-4">
                         <span class="text-gray-400 text-xs md:text-sm" id="dateCreiatio">Jun 23, 2008</span>
                         <span id="riting" class="text-xs md:text-sm border-2 border-blue-500 text-white font-bold px-2 md:px-3 py-1 rounded-lg">95</span>
@@ -181,23 +184,24 @@ async function clickCard(game) {
 function afficherGameDetails(game) {
     document.getElementById("imgGame").src = game.background_image_additional || game.background_image;
     document.querySelector("#gameTitle").textContent = game.name || "Unknown Game";
-    document.querySelector("p span.text-gray-300").textContent = game.genres?.map(g => g.name).join(", ") || "N/A";
-    document.querySelector("p:nth-of-type(2) span.text-gray-300").textContent = game.developers?.[0]?.name || "Unknown";
-    document.querySelector("p:nth-of-type(3) span.text-gray-300").textContent = game.released || "Unknown";
+    document.querySelector("#genres").textContent = game.genres.map(d => d.name).join(", ") || "N/A";
+    document.querySelector("#developers").textContent = game.developers?.[0]?.name || "Unknown";
+    document.querySelector("#released").textContent = game.released || "Unknown";
 
 
-    const tagsContainer = document.querySelector("p:nth-of-type(4)");
+    const tagsContainer = document.querySelector("#tags");
     if (game.tags?.length) {
         tagsContainer.innerHTML = `<span class="font-semibold text-gray-100">Tags :</span> ` +
             game.tags.slice(0, 5).map(tag =>
-                `<span class="text-blue-400 underline cursor-pointer">${tag.name}</span>`
+                `<span class=" underline cursor-pointer">${tag.name}</span>`
             ).join(", ");
     }
 
-    document.querySelector("p:nth-of-type(5) span.text-gray-300").textContent = game.esrb_rating?.name || "Not Rated";
-    document.querySelector(".border-gray-500 p span.text-gray-300").textContent = game.publishers?.[0]?.name || "Unknown";
+    document.querySelector("#ageRating").textContent = game.esrb_rating?.name || "Not Rated";
+    document.querySelector("#publisher").textContent = game.publishers?.[0]?.name || "Unknown";
 
-    const websiteLink = document.querySelector(".border-gray-500 a");
+    const websiteLink = document.querySelector("#website");
+
     websiteLink.href = game.website || "#";
     websiteLink.textContent = game.website || "n";
 
@@ -333,8 +337,7 @@ function checkFavoret() {
 }
 
 
-let column = document.getElementById("column");
-let row = document.getElementById("rows");
+
 
 column.addEventListener("click", () => {
     isRow = false
