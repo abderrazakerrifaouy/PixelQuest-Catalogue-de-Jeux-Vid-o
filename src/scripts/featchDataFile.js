@@ -14,16 +14,38 @@ export async function FeatchData(url) {
 }
 
 
-export async function rochercheById(id){
-   try {
-       const response = await fetch(`https://debuggers-games-api.duckdns.org/api/games/${id}`);
-
+export async function getGenre(){
+    try{
+        const response = await fetch(`https://debuggers-games-api.duckdns.org/api/genres`)
         if (!response.ok) {
             throw new Error(response.status);
         }
         return await response.json();
+    }catch{
+        console.error("Erreur:", error);
+    }
+}
 
-    } catch (error) {
+export async function getplatform(){
+    try{
+        const response = await fetch(`https://debuggers-games-api.duckdns.org/api/platforms`)
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+        return await response.json();
+    }catch{
+        console.error("Erreur:", error);
+    }
+}
+
+export async function getRiteng(){
+    try{
+        const response = await fetch(`https://debuggers-games-api.duckdns.org/api/games?rating`)
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+        return await response.json();
+    }catch{
         console.error("Erreur:", error);
     }
 }
