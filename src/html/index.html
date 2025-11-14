@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../output.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-51%);
+      }
+    }
+
+    .animate-scroll {
+      display: inline-flex;
+      animation: scroll 15s linear infinite;
+    }
+
+    #card {
+      transition: transform 2s ease;
+      transform-style: preserve-3d;
+    }
+  </style>
+
+  <title>PixelQuest</title>
+</head>
+
+<body class="bg-[#151515]">
+  <header class="bg-black p-3 flex h-1/2 justify-between items-center  ">
+    <h1 class="text-white lg:text-3xl md:text-2xl font-bold">PixelQuest</h1>
+
+    <div class="flex gap-2 items-center px-2 py-1 rounded-lg  lg:w-[40%] md:w-[50%]">
+      <input id="shearchInput" type="text"
+        class="bg-[#D9D9D9] h-5 w-50 rounded-lg text-gray-900 text-start text-[10px] p-2  outline-none  md:w-full md:h-[40%] md:text-[20px] md:rounded-[50px] "
+        placeholder="search ...">
+      <svg xmlns="http://www.w3.org/2000/svg" id="shearchIcons"
+        class="h-3 w-3 text-dark relative left-[-23px] md:h-6 md:w-6 md:left-[-53px]" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+      </svg>
+    </div>
+    <div class="block xl:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" id="bergerMenu" class="h-6 w-6 sm:h-10 sm:w-10 text-white " fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+    <div id="menu"
+      class="text-white  xl:flex    xl:p-5 xl:relative  xl:top-0 bg-black xl:left-0  xl:w-[20%]  absolute  w-screen m-0  justify-around top-13 md:top-1/2 p-1 right-0 hidden ">
+      <p id="favoret" class="cursor-pointer text-1xl">FAVORET</p>
+      <p id="home" class="cursor-pointer text-1xl">home</p>
+      <p class="cursor-pointer text-1xl">Settings</p>
+    </div>
+  </header>
+
+  <div id="fullFilter" class="p-2 max-w-full ">
+    <div class="top">
+      <h4 class="font-bold text-white">FILTRE LES GAME</h4>
+      <div id="filtre" class="p-4 flex justify-between items-center lg:w-[600px] ">
+        <div id="filtreByGenre"
+          class="button p-2 h-auto w-auto lg:w-30 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium" >Genre</p>
+        </div>
+        <div id="filtreByplatform"
+          class="button p-2 h-auto w-auto lg:w-30 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium" >plateforme</p>
+        </div>
+        <div id="filtrePopularité"
+          class="button p-2 h-auto w-auto lg:w-30 border-2 border-[#044A9D] rounded-4xl bg-linear-to-r from-[#044A9D] to-[#012044] flex justify-center items-center shadow-[0_0px_20px_#044A9D]">
+          <p class="text-amber-50 font-medium">popularité</p>
+        </div>
+      </div>
+    </div>
+    <div class=" text-white hidden" id="containerFliterage">
+      <h2 id="nameFilter" class="font-bold mb-2"></h2>
+      <div  class="overflow-hidden relative p-5 ">
+        <div id="LisetFiltrage" class="flex gap-3 animate-scroll whitespace-nowrap justify-between w-[200%] ">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=" hidden lg:flex text-white mt-10  justify-end gap-4 items-center px-3 mb-5">
+    <p>Displayoptions :</p>
+    <div id="column" class="bg-white w-10 h-6 grid grid-cols-3 gap-1 p-1 rounded-[7px]">
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+    </div>
+
+    <div id="rows" class="bg-white w-10 h-6 grid grid-row-2 gap-1 p-1 rounded-[7px] opacity-50">
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+      <div class=" bg-[#CFCFCF] rounded-[3px]"></div>
+    </div>
+  </div>
+  
+  <div id="content" class="card-holder columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-5 min-w-20 ">
+    <div id="loading" class="loading text-amber-50 flex w-full justify-center p-10 ">
+      <i class="fa-solid fa-circle-notch fa-spin text-4xl"></i>
+    </div>
+  </div>
+  <div id="cardXL" class="w-full sm:w-[80%] md:w-[70%]  sm:left-[10%] md:left-[15%] absolute top-0 justify-center items-center p-4 sm:p-10 hidden">
+  <div class="bg-[#5C5757] text-white rounded-2xl shadow-lg w-full h-auto md:h-full overflow-hidden relative">
+
+    <div class="relative ">
+      <img id="imgGame" src="" alt="Game Banner" class="w-full h-48 sm:h-64 md:h-72 object-cover">
+      <div class="absolute inset-0 shadow-1xl shadow-amber-50 bg-black/40 flex  sm:flex-row items-start justify-between p-2 sm:p-4">
+        <img id="closeBtn" class="z-10 w-10 h-10 sm:w-15 sm:h-15 cursor-pointer"
+          src="https://img.icons8.com/?size=100&id=8oUG4ir3gagJ&format=png&color=000000" alt="closed">
+        <h1 id="gameTitle" class="text-xl sm:text-3xl md:text-4xl font-bold mt-2 sm:mt-0 ">Game Title</h1>
+
+        <div id="plateformes" class="flex flex-col gap-2 mt-2 sm:mt-0"></div>
+      </div>
+    </div>
+
+    <div class="p-3 sm:p-5 space-y-3">
+      <h4 class="text-lg sm:text-xl font-semibold">About</h4>
+      <p id="gameDescription" class="text-sm sm:text-base">No description available.</p>
+    </div>
+
+    <div class="w-full text-white rounded-b-2xl p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+      <div class="space-y-4 sm:space-y-10">
+        <p><span class="font-semibold text-gray-100">Genres :</span>
+          <span id="genres" class="text-gray-300"></span>
+        </p>
+
+        <p><span class="font-semibold text-gray-100">Developer :</span>
+          <span id="developer" class="text-gray-300"></span>
+        </p>
+
+        <p><span class="font-semibold text-gray-100">Release date :</span>
+          <span id="releaseDate" class="text-gray-300"></span>
+        </p>
+
+        <p><span class="font-semibold text-gray-100">Tags :</span>
+          <span id="tags" class="text-gray-300"></span>
+        </p>
+
+        <p><span class="font-semibold text-gray-100">Age rating :</span>
+          <span id="ageRating" class="text-gray-300"></span>
+        </p>
+      </div>
+
+      <div class="space-y-3 border-t md:border-t-0 md:border-l border-gray-500 md:pl-6 pt-3 md:pt-0">
+        <p><span class="font-semibold text-gray-100">Publisher :</span>
+          <span id="publisher" class="text-gray-300"></span>
+        </p>
+
+        <p><span class="font-semibold text-gray-100">Website :</span>
+          <a id="website" href="#" class="text-blue-400 underline break-all"></a>
+        </p>
+
+        <div>
+          <p class="font-semibold text-gray-100">Minimum:</p>
+          <ul id="requirements" class="text-gray-300 text-xs sm:text-sm list-disc list-inside space-y-1 mt-1">
+            <li>Information not available.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  <script type="module" src="../scripts/script.js"></script>
+</body>
+
+</html>
